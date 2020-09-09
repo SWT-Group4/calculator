@@ -56,6 +56,7 @@ namespace _01_Calculator.Test.Unit
         [TestCase(1.25, 1.24, 2.49)]
         [TestCase(1.26, 1.24, 2.50)]
         [TestCase(1.27, 1.24, 2.51)]
+        [TestCase(2534.85, 13269.34, 15804.19)]
         public void test_Add(double a, double b, double res)
         {
            // Special Arrangements
