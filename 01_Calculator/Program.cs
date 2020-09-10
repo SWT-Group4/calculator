@@ -103,5 +103,13 @@ namespace _01_Calculator
             else
                 return Math.Sqrt(a);
         }
+
+        public double Log10(double a)
+        {
+            if (a < 0)
+                throw new DivideByZeroException();
+            else
+                return Math.Log10(a);
+        }
     }
 }
