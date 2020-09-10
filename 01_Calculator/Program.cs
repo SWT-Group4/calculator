@@ -95,5 +95,13 @@ namespace _01_Calculator
             return Math.Exp(a);
         }
 
+
+        public double Root(double a)
+        {
+            if(a < 0)
+                throw new DivideByZeroException();
+            else
+                return Math.Sqrt(a);
+        }
     }
 }

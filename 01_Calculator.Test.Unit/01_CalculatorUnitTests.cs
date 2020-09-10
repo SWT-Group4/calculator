@@ -134,5 +134,31 @@ namespace _01_Calculator.Test.Unit
             // Assert
             Assert.That(_uut.Power(a), Is.EqualTo(res).Within(0.0000000001));
         }
+
+        [TestCase(4, 2)]
+        [TestCase(0, 0)]
+        [TestCase(0.2, 0.4472135955)]
+        public void test_root_CorrectResult(double a, double res)
+        {
+            // Special Arrangements
+
+            // Act
+
+            // Assert
+            Assert.That(_uut.Root(a), Is.EqualTo(res).Within(0.0000000001));
+        }
+
+        [TestCase(-1)]
+        [TestCase(-0.1)]
+        public void test_RootByZero_Throws(double a)
+        {
+            // Special Arrangements
+
+            // Act
+
+            // Assert
+            Assert.Throws<DivideByZeroException>(() => _uut.Root(a));
+        }
+
     }
 }
