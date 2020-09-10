@@ -7,6 +7,7 @@
  */
 
 using System;
+using System.Net.Http.Headers;
 
 namespace _01_Calculator
 {
@@ -25,6 +26,10 @@ namespace _01_Calculator
         {
             Console.WriteLine("Calculator for SWT!\n");
             Calculator calc = new Calculator();
+
+            double res = calc.Divide(5, 0);
+            Console.WriteLine(res);
+            Console.WriteLine(4.0 / 0);
 
             /*
             var a = 3.0;
@@ -72,6 +77,16 @@ namespace _01_Calculator
         {
             // Evaluate (a * b)
             return a * b;
+        }
+
+        public double Divide(double dividend, double divisor)
+        {
+            // Evaluate (a / b)
+
+            if (divisor == 0)
+                throw new DivideByZeroException();
+            else
+                return dividend / divisor;
         }
 
         public double Power(double a)

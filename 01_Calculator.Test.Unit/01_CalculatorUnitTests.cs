@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 /*
  *  File: 01_CalculatorUnitTests.cs
@@ -57,7 +58,7 @@ namespace _01_Calculator.Test.Unit
         [TestCase(1.26, 1.24, 2.50)]
         [TestCase(1.27, 1.24, 2.51)]
         [TestCase(2534.85, 13269.34, 15804.19)]
-        public void test_Add(double a, double b, double res)
+        public void test_Add_CorrectResult(double a, double b, double res)
         {
            // Special Arrangements
 
@@ -71,7 +72,7 @@ namespace _01_Calculator.Test.Unit
         [TestCase(-1.0, 1.0, -2.0)]
         [TestCase(0, 1, -1)]
         [TestCase(1, -1, 2)]
-        public void test_Subtract(double a, double b, double res)
+        public void test_Subtract_CorrectResult(double a, double b, double res)
         {
             // Special Arrangements
 
@@ -85,7 +86,7 @@ namespace _01_Calculator.Test.Unit
         [TestCase(-1.0, 2.0, -2.0)]
         [TestCase(-1.0, -2.0, 2.0)]
         [TestCase(2.53, 6.922, 17.51266)]
-        public void test_Multiply(double a, double b, double res)
+        public void test_Multiply_CorrectResult(double a, double b, double res)
         {
             // Special Arrangements
 
@@ -95,11 +96,36 @@ namespace _01_Calculator.Test.Unit
             Assert.That(_uut.Multiply(a, b), Is.EqualTo(res).Within(0.0000000001));
         }
 
+        [TestCase(-1.0, 2.0, -0.5)]
+        [TestCase(-1.0, -2.0, 0.5)]
+        [TestCase(2.53, 6.922, 0.365501)]
+        public void test_Divide_CorrectResult(double a, double b, double res)
+        {
+            // Special Arrangements
+
+            // Act
+
+            // Assert
+            Assert.That(_uut.Divide(a, b), Is.EqualTo(res).Within(0.000001));
+        }
+        
+        [TestCase(10, 0)]
+        [TestCase(10, -0)]
+        public void test_DivideByZero_Throws(double a, double b)
+        {
+            // Special Arrangements
+
+            // Act
+
+            // Assert
+            Assert.Throws<DivideByZeroException>(() => _uut.Divide(a, b));
+        }
+
         // 04.1 to 04.3
         [TestCase(0,  1)]
         [TestCase(1.0987, 3.00026314554)]
         [TestCase(-2.32, 0.0982735856)]
-        public void test_Power(double a, double res)
+        public void test_Power_CorrectResult(double a, double res)
         {
             // Special Arrangements
 
