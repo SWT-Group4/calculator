@@ -84,6 +84,7 @@ namespace _01_Calculator.Test.Unit
         // 03.1 to 03.2
         [TestCase(-1.0, 2.0, -2.0)]
         [TestCase(-1.0, -2.0, 2.0)]
+        [TestCase(2.53, 6.922, 17.51266)]
         public void test_Multiply(double a, double b, double res)
         {
             // Special Arrangements
@@ -91,7 +92,7 @@ namespace _01_Calculator.Test.Unit
             // Act
 
             // Assert
-            Assert.That(_uut.Multiply(a, b), Is.EqualTo(res));
+            Assert.That(_uut.Multiply(a, b), Is.EqualTo(res).Within(0.0000000001));
         }
 
         // 04.1 to 04.3
