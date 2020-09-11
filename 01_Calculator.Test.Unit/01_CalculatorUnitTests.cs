@@ -110,6 +110,7 @@ namespace _01_Calculator.Test.Unit
         }
         
         [TestCase(10, 0)]
+        [TestCase(10, 0)]
         [TestCase(10, -0)]
         public void test_DivideByZero_Throws(double a, double b)
         {
@@ -150,6 +151,7 @@ namespace _01_Calculator.Test.Unit
 
         [TestCase(-1)]
         [TestCase(-0.1)]
+        [TestCase(-0.01)]
         public void test_RootByZero_Throws(double a)
         {
             // Special Arrangements
@@ -175,6 +177,7 @@ namespace _01_Calculator.Test.Unit
 
         [TestCase(-1)]
         [TestCase(-0.1)]
+        [TestCase(-0.01)]
         public void test_Log10ByZero_Throws(double a)
         {
             // Special Arrangements
